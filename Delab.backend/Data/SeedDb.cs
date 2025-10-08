@@ -18,7 +18,7 @@ public class SeedDb
 
         await CheckCountries();
     }
-
+    
     private async Task CheckCountries()
     {
         if (!await _context.Countries.AnyAsync())
