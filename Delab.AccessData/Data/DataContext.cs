@@ -1,0 +1,27 @@
+﻿using Delab.Shared.Entities;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+
+namespace Delab.AccessData.Data;
+
+public class DataContext : DbContext
+{
+    public DataContext(DbContextOptions options) : base(options)
+    {
+    }
+
+    // Sirve para que se setee y se cree en la base de datos
+    public DbSet<Country> Countries => Set<Country>();
+    public DbSet<State> States => Set<State>();
+    public DbSet<City> Cities => Set<City>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        // Para tomar los colores de configuracion 
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+    }
+
+  
+}

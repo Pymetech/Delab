@@ -1,0 +1,6 @@
+@Delab.backend_HostAddress = http://localhost:5111
+
+GET {{Delab.backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
